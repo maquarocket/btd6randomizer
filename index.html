@@ -17,7 +17,7 @@
 		<div class="row container mx-auto transbox" style="margin-top: 1%">
 			<div id="options" class="col-6 mb-2 border border-primary rounded">
 				<h4 class="text-center btd6font">Options</h4>
-				<form onsubmit="generateRandomOptions()">
+				<form>
 					<div class="mb-3">
 						<label for="playercount" class="form-label">Number of players:</label>
 						<input id="playercount"  name="playercount" type="number" min="1" max="4" value="1" required>		
@@ -47,7 +47,7 @@
 						<label for="max_towers">Maximum tower options per player:</label>
 						<input id="max_towers" name="max_towers" type="number" min="1" max="4" value="1" disabled>
 					</div>
-					<button id="generator_btn" action="submit" class="mb-2 btn btn-primary">Generate</button>
+					<button type="button" id="generator_btn" onclick="generateRandomOptions()" class="mb-2 btn btn-primary">Generate</button>
 				</form>
 			</div>
 			<div id="results" class="col-6 mb-2 border border-primary rounded">
