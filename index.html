@@ -20,36 +20,35 @@
 					</div>
 					<div class="mb-3 form-check form-switch">
 						<label for="randomize_map" class="form-label form-check-label">Randomize map?</label>
-						<input type="checkbox" class="form-check-input" name="randomize_map">
+						<input id="randomize_map" type="checkbox" class="form-check-input" name="randomize_map">
 					</div>
 					<div class="mb-3 form-check form-switch">
 						<label for="randomize_heroes" class="form-label form-check-label" >Randomize heroes?</label>
-						<input type="checkbox" class="form-check-input" name="randomize_heroes">	
+						<input id="randomize_heroes" type="checkbox" class="form-check-input" name="randomize_heroes">	
 					</div>
 					<div class="mb-3 form-check form-switch">
 						<label for="randomize_mode" class="form-label form-check-label">Randomize mode?</label>
-						<input type="checkbox" class="form-check-input" name="randomize_mode">
+						<input id="randomize_mode" type="checkbox" class="form-check-input" name="randomize_mode">
 					</div>
 					<div class="mb-3 form-check form-switch">
 						<label for="randomize_towers" class="form-label form-check-label">Randomize towers?</label>
-						<input type="checkbox" class="form-check-input" name="randomize_towers">
+						<input id="randomize_towers" type="checkbox" class="form-check-input" name="randomize_towers">
 						<div class="form-text">This option prevents <strong>X Monkeys Only</strong> modes from being picked.</div>
 					</div>
 					<div class="mb-3 form-check form-switch">
 						<label for="restrict_tower_type" class="form-label form-check-label">Restrict each player to one tower type?</label>
-						<input type="checkbox" class="form-check-input" name="restrict_tower_type" disabled>
+						<input id="restrict_tower_type" type="checkbox" class="form-check-input" name="restrict_tower_type" disabled>
 					</div>
 					<div class="mb-3">
 						<label for="max_towers">Maximum tower options per player:</label>
-						<input name="max_towers" type="number" min="1" max="4" value="1" disabled>
+						<input id="max_towers" name="max_towers" type="number" min="1" max="4" value="1" disabled>
 					</div>
+					<button id="generator_btn" action="submit" class="mb-2 btn btn-primary">Generate</button>
 				</form>
-				<button id="generator_btn" class="mb-2 btn btn-primary">Generate</button>
 			</div>
 			<div id="results" class="col-6 mb-2 border border-primary rounded">
 				<h4 class="text-center">Results</h4>
 			</div>	
 		</div>
-		
 	</body>
 </html>
