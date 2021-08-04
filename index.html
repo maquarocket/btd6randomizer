@@ -1,22 +1,54 @@
 <html>
 	<head>
-		<title> whysnakes and maquarocket present ACBR: A C*** BTD6 Randomizer </title>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/query-3.6.0.min.js"></script>
+		<title> whysnakes and maquarocket present ACBR: A C*** BTD6 Randomizer </title>	
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/btd6info.js"></script>
 		<script src="js/btd6randomizer.js"></script>
-		<link rel="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<div id="options">
-			<div class="title">Options</div>
-			<form>
-				<label>Number of players</label>
-				<input name="playercount" type="number" min="1" max="4" required>
-			</form>
-			<button id="generator_btn" class="button">Generate</button>
+		<h2 class="text-center">Bloons TD6 Randomizer</h2>
+		<h4 class="text-center">Randomizes options for maps, hero selection, mode selection and tower selection</h4>
+		<div class="row container justify-content-center">
+			<div id="options" class="col-6 mb-2 border border-primary rounded">
+				<h4 class="text-center">Options</h4>
+				<form>
+					<div class="mb-3">
+						<label for="playercount" class="form-label">Number of players:</label>
+						<input id="playercount"  name="playercount" type="number" min="1" max="4" value="1" required>		
+					</div>
+					<div class="mb-3 form-check form-switch">
+						<label for="randomize_map" class="form-label form-check-label">Randomize map?</label>
+						<input type="checkbox" class="form-check-input" name="randomize_map">
+					</div>
+					<div class="mb-3 form-check form-switch">
+						<label for="randomize_heroes" class="form-label form-check-label" >Randomize heroes?</label>
+						<input type="checkbox" class="form-check-input" name="randomize_heroes">	
+					</div>
+					<div class="mb-3 form-check form-switch">
+						<label for="randomize_mode" class="form-label form-check-label">Randomize mode?</label>
+						<input type="checkbox" class="form-check-input" name="randomize_mode">
+					</div>
+					<div class="mb-3 form-check form-switch">
+						<label for="randomize_towers" class="form-label form-check-label">Randomize towers?</label>
+						<input type="checkbox" class="form-check-input" name="randomize_towers">
+					</div>
+					<div class="mb-3 form-check form-switch">
+						<label for="restrict_tower_type" class="form-check form-check-label">Restrict each player to one tower type?</label>
+						<input type="checkbox" class="form-check-input" name="restrict_tower_type" disabled>	
+					</div>
+					<div class="mb-3">
+						<label for="max_towers">Maximum tower options per player:</label>
+						<input name="max_towers" type="number" min="1" max="4" value="1" disabled>
+					</div>
+				</form>
+				<button id="generator_btn" class="mb-2 btn btn-primary">Generate</button>
+			</div>
+			<div id="results" class="col-6 mb-2 border border-primary rounded">
+				<h4 class="text-center">Results</h4>
+			</div>	
 		</div>
-		<div id="results">
-			Results go here
-		</div>	
+		
 	</body>
 </html>
