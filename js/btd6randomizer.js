@@ -122,7 +122,7 @@ function generateRandomOptions() {
                 {
                     for(var j = 0; j < maxTowers; j++) {
                         $("#player_" + (i + 1) + "_tower_" + (j + 1)).removeClass("d-none");
-                        $("#player_" + (i + 1) + "_tower_" + (j + 1)).append("Tower " + (j + 1) + ": " + playerTowers[i + j]);
+                        $("#player_" + (i + 1) + "_tower_" + (j + 1)).append("Tower " + (j + 1) + ": " + playerTowers[i*maxTowers + j]);
                     }
                 }
             }
