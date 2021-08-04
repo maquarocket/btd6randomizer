@@ -39,8 +39,10 @@ function getRandomTowers(noOfTowers, towerType) {
         }
     }
     else {
-        for(var tower in btd6_towers[towerType]) {
-            towerArray.push(btd6_towers[key][tower]);
+        for(var key in btd6_towers) {
+            for(var tower in btd6_towers[towerType]) {
+                towerArray.push(btd6_towers[key][tower]);
+            }
         }
     }
     for(let i = 0; i < noOfTowers; i++) {
