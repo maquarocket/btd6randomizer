@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'btd6font';
+    src: url('../static/LuckiestGuy-Regular.ttf');
+}
+
+.btd6font {
+    font-family: 'btd6font';
+}
+
 div.background {
     background-image: url('../static/backgrounds/btd6_background.png');
     background-repeat: no-repeat;
