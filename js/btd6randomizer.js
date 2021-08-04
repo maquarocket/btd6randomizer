@@ -128,5 +128,22 @@ function generateRandomOptions() {
             }
         }
     }
-
 };
+
+function toggleTowerOptions() {
+    console.log("Randomize towers clicked")
+    if($("#randomize_towers").is(":checked")) {
+        $("#restrict_tower_type").prop("disabled",false);
+        $("#max_towers").prop("disabled",false);
+    }
+    else{
+        $("#restrict_tower_type").prop("disabled",true);
+        $("#max_towers").prop("disabled",true);
+    }
+};
+
+$(document).ready(function() {
+    $("#randomize_towers").click(function() {
+        toggleTowerOptions();
+    });
+});
