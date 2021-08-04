@@ -65,9 +65,9 @@ function generateRandomOptions() {
     }
 
     //Clear previous results first
-    $("#random_map_result").addClass("d-none");
+    $("#random_map").addClass("d-none");
     $("#random_map_result").empty();
-    $("#random_mode_result").addClass("d-none");
+    $("#random_mode").addClass("d-none");
     $("#random_mode_result").empty();
     
     
@@ -82,12 +82,12 @@ function generateRandomOptions() {
     }
     //Output map first
     if(useRandomMap) {
-        $("#random_map_result").removeClass("d-none");
+        $("#random_map").removeClass("d-none");
         $("#random_map_result").append("Map: " + getRandomMap());
     }
     //Then the mode
     if(useRandomMode) {
-        $("#random_mode_result").removeClass("d-none");
+        $("#random_mode").removeClass("d-none");
         $("#random_mode_result").append("Mode: " + getRandomMode());
     }
     //Finally each player's options (hero and towers)
