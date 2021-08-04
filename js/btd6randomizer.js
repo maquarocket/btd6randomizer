@@ -104,12 +104,12 @@ function generateRandomOptions() {
     //Output map first
     if(useRandomMap) {
         $("#random_map").removeClass("d-none");
-        $("#random_map_result").append("Map: " + getRandomMap());
+        $("#random_map_result").append(getRandomMap());
     }
     //Then the mode
     if(useRandomMode) {
         $("#random_mode").removeClass("d-none");
-        $("#random_mode_result").append("Mode: " + getRandomMode());
+        $("#random_mode_result").append(getRandomMode());
     }
     //Finally each player's options (hero and towers)
     if(useRandomHero || useRandomTowers)
