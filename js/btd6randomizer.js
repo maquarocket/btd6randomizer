@@ -5,7 +5,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
-//shuffle function taken from SO
+//Fisher-Yates algorithm shuffle function taken from SO
 function shuffle(array) {
     let counter = array.length;
 
@@ -60,10 +60,8 @@ function getRandomTowers(noOfTowers, towerType) {
         }
     }
     else {
-        for(var key in btd6_towers) {
-            for(var tower in btd6_towers[towerType]) {
-                towerArray.push(btd6_towers[key][tower]);
-            }
+        for(var tower in btd6_towers[towerType]) {
+            towerArray.push(btd6_towers[towerType][tower]);
         }
     }
     for(let i = 0; i < noOfTowers; i++) {
