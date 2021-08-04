@@ -5,6 +5,27 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
+//shuffle function taken from SO
+function shuffle(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+}
+
 function getRandomMap() {
     let mapIndex = getRandomInt(0,btd6_maps.length - 1);
     return btd6_maps[mapIndex];
@@ -98,11 +119,12 @@ function generateRandomOptions() {
         if(useRandomTowers) {
             let playerTowers = [];
             if(restrictTowerType) {
+                console.log("Tower type restriction in effect")
                 let modes = ["primary","military","magic","support"];
+                let playerTowerTypes = shuffle(modes);
+                console.log(playerTowerTypes);
                 for(var i = 0; i < playerCount; i++) {
-                    let modeIndex = getRandomInt(0,3);
-                    playerTowerType = modes[modeIndex];
-                    let randomTowersByType = getRandomTowers(maxTowers,playerTowerType);
+                    let randomTowersByType = getRandomTowers(maxTowers,playerTowerTypes[i]);
                     for(var j = 0; j < randomTowersByType.length; j++) {
                         playerTowers.push(randomTowersByType[j]);
                     }
