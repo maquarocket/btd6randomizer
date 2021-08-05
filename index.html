@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<title> whysnakes and maquarocket present ACBR: A C*** BTD6 Randomizer </title>	
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/btd6info.js"></script>
+		<script src="js/btd6randomizer.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/custom.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="background h-100">
+		<div class="transbox">
+			<h2 class="text-center btd6font">Bloons TD6 Randomizer</h2>
+			<h4 class="text-center btd6font">Randomizes options for maps, hero selection, mode selection and tower selection</h4>
+		</div>	
+		<div class="row container mx-auto py-2 transbox d-flex h-75 style="margin-top: 1%">
+			<div class="col-6 px-2">
+				<div id="options" class="border border-dark rounded h-100">
+					<h4 class="text-center btd6font">Options</h4>
+					<form>
+						<div class="mb-3">
+							<label for="playercount" class="form-label">Number of players:</label>
+							<input id="playercount"  name="playercount" type="number" min="1" max="4" value="1" required>		
+						</div>
+						<div class="mb-3 form-check form-switch">
+							<label for="randomize_map" class="form-label form-check-label">Randomize map?</label>
+							<input id="randomize_map" type="checkbox" class="form-check-input" name="randomize_map">
+						</div>
+						<div class="mb-3 form-check form-switch">
+							<label for="randomize_heroes" class="form-label form-check-label" >Randomize heroes?</label>
+							<input id="randomize_heroes" type="checkbox" class="form-check-input" name="randomize_heroes">	
+						</div>
+						<div class="mb-3 form-check form-switch">
+							<label for="randomize_mode" class="form-label form-check-label">Randomize mode?</label>
+							<input id="randomize_mode" type="checkbox" class="form-check-input" name="randomize_mode">
+						</div>
+						<div class="mb-3 form-check form-switch">
+							<label for="randomize_towers" class="form-label form-check-label">Randomize towers?</label>
+							<input id="randomize_towers" type="checkbox" class="form-check-input" name="randomize_towers">
+							<div class="form-text">This option prevents <strong>X Monkeys Only</strong> modes from being picked.</div>
+						</div>
+						<div class="mb-3 form-check form-switch">
+							<label for="restrict_tower_type" class="form-label form-check-label">Restrict each player to one tower type?</label>
+							<input id="restrict_tower_type" type="checkbox" class="form-check-input" name="restrict_tower_type" disabled>
+						</div>
+						<div class="mb-3">
+							<label for="max_towers">Maximum tower options per player:</label>
+							<input id="max_towers" name="max_towers" type="number" min="1" max="4" value="1" disabled>
+						</div>
+						<div class="mb-2 row justify-content-center">
+							<button type="button" id="generator_btn" onclick="generateRandomOptions()" class="col-3 btn btn-primary">Generate</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-6 px-2">
+				<div id="results" class="border border-dark rounded overflow-auto h-100">
+					<h4 class="text-center btd6font">Results</h4>
+					<div id="results_content">
+						<div id="random_map" class="card mb-2 d-none">
+							<div class="card-header bg-dark text-white">
+								<h5 class="btd6font" >Map</h5>
+							</div>
+							<div class="card-body">
+								<h5 id="random_map_result" class="btd6font"></h5>
+							</div>
+						</div>
+						<div id="random_mode" class="card mb-2 d-none">
+							<div class="card-header bg-dark text-white">
+								<h5 class="btd6font" >Mode</h5>
+							</div>
+							<div class="card-body">
+								<h5 id="random_mode_result" class="btd6font"></h5>
+							</div>
+						</div>
+						<div id="player_1" class="card mb-2 d-none">
+							<div class="card-header bg-dark text-white">
+								<h5 class="btd6font" >Player 1</h5>
+							</div>
+							<ul class="list-group list-group flush">
+								<li id="player_1_hero" class="list-group-item btd6font d-none"></li>
+								<li id="player_1_tower_1" class="list-group-item btd6font d-none"></li>
+								<li id="player_1_tower_2" class="list-group-item btd6font d-none"></li>
+								<li id="player_1_tower_3" class="list-group-item btd6font d-none"></li>
+								<li id="player_1_tower_4" class="list-group-item btd6font d-none"></li>
+							</ul>
+						</div> 
+						<div id="player_2" class="card mb-2 d-none">
+							<div class="card-header bg-dark text-white">
+								<h5 class="btd6font" >Player 2</h5>
+							</div>
+							<ul class="list-group list-group flush">
+								<li id="player_2_hero" class="list-group-item btd6font d-none"></li>
+								<li id="player_2_tower_1" class="list-group-item btd6font d-none"></li>
+								<li id="player_2_tower_2" class="list-group-item btd6font d-none"></li>
+								<li id="player_2_tower_3" class="list-group-item btd6font d-none"></li>
+								<li id="player_2_tower_4" class="list-group-item btd6font d-none"></li>
+							</ul>
+						</div> 
+						<div id="player_3" class="card mb-2 d-none">
+							<div class="card-header bg-dark text-white">
+								<h5 class="btd6font" >Player 3</h5>
+							</div>
+							<ul class="list-group list-group flush">
+								<li id="player_3_hero" class="list-group-item btd6font d-none"></li>
+								<li id="player_3_tower_1" class="list-group-item btd6font d-none"></li>
+								<li id="player_3_tower_2" class="list-group-item btd6font d-none"></li>
+								<li id="player_3_tower_3" class="list-group-item btd6font d-none"></li>
+								<li id="player_3_tower_4" class="list-group-item btd6font d-none"></li>
+							</ul>
+						</div>
+						<div id="player_4" class="card mb-2 d-none">
+							<div class="card-header bg-dark text-white">
+								<h5 class="btd6font" >Player 4</h5>
+							</div>
+							<ul class="list-group list-group flush">
+								<li id="player_4_hero" class="list-group-item btd6font d-none"></li>
+								<li id="player_4_tower_1" class="list-group-item btd6font d-none"></li>
+								<li id="player_4_tower_2" class="list-group-item btd6font d-none"></li>
+								<li id="player_4_tower_3" class="list-group-item btd6font d-none"></li>
+								<li id="player_4_tower_4" class="list-group-item btd6font d-none"></li>
+							</ul>
+						</div>      
+					</div>
+				</div>
+			</div>	
+		</div>
+	</body>
+</html>

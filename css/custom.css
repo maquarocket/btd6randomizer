@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'btd6font';
+    src: url('../static/LuckiestGuy-Regular.ttf');
+}
+
+.btd6font {
+    font-family: 'btd6font';
+}
+
+div.background {
+    background-image: url('../static/backgrounds/btd6_background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+div.transbox {
+    background-color: rgba(255,255,255,0.65);
+    border: 1px solid black;
+}
+
+.scrollable-columns {
+    overflow-y: scroll;
+}
