@@ -157,9 +157,10 @@ function generateRandomOptions() {
                 playerTowers = getRandomTowers(maxTowers * playerCount);
             }
             
+            showRandomHeroes();
             for(var i = 0; i < playerCount; i++)
             {
-                showRandomHeroes();
+                
                 if(useRandomTowers)
                 {
                     for(var j = 0; j < maxTowers; j++) {
