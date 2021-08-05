@@ -22,7 +22,6 @@ function shuffle(array) {
         array[counter] = array[index];
         array[index] = temp;
     }
-
     return array;
 }
 
@@ -135,49 +134,40 @@ function generateRandomOptions() {
         $("#random_mode").removeClass("d-none");
         $("#random_mode_result").append(getRandomMode());
     }
-    //Finally each player's options (hero and towers)
-    if(useRandomHero || useRandomTowers)
-    {
+    // Randomize heroes.
+    if (useRandomHero) {
         togglePlayerCards(true);
-        if(useRandomTowers) {
-            let playerTowers = [];
-            if(restrictTowerType) {
-                console.log("Tower type restriction in effect")
-                let modes = ["primary","military","magic","support"];
-                let playerTowerTypes = shuffle(modes);
-                console.log(playerTowerTypes);
-                for(var i = 0; i < playerCount; i++) {
-                    let randomTowersByType = getRandomTowers(maxTowers,playerTowerTypes[i]);
-                    for(var j = 0; j < randomTowersByType.length; j++) {
-                        playerTowers.push(randomTowersByType[j]);
-                    }
-                }
-            }
-            else {
-                playerTowers = getRandomTowers(maxTowers * playerCount);
-            }
-            
-            showRandomHeroes();
-            for(var i = 0; i < playerCount; i++)
-            {
-                
-                if(useRandomTowers)
-                {
-                    for(var j = 0; j < maxTowers; j++) {
-                        $("#player_" + (i + 1) + "_tower_" + (j + 1)).removeClass("d-none");
-                        $("#player_" + (i + 1) + "_tower_" + (j + 1)).append("Tower " + (j + 1) + ": " + playerTowers[i*maxTowers + j]);
-                    }
+        showRandomHeroes();
+    }
+    // Finally, randomize towers.
+    if(useRandomTowers) {
+        togglePlayerCards(true);  // Redundant extra call does not cause problems.
+        let playerTowers = [];
+        if(restrictTowerType) {
+            let modes = ["primary","military","magic","support"];
+            let playerTowerTypes = shuffle(modes);
+            for(var i = 0; i < playerCount; i++) {
+                let randomTowersByType = getRandomTowers(maxTowers,playerTowerTypes[i]);
+                for(var j = 0; j < randomTowersByType.length; j++) {
+                    playerTowers.push(randomTowersByType[j]);
                 }
             }
         }
         else {
-            showRandomHeroes();
+            playerTowers = getRandomTowers(maxTowers * playerCount);
+        }
+        
+        for(var i = 0; i < playerCount; i++)
+        {
+            for(var j = 0; j < maxTowers; j++) {
+                $("#player_" + (i + 1) + "_tower_" + (j + 1)).removeClass("d-none");
+                $("#player_" + (i + 1) + "_tower_" + (j + 1)).append("Tower " + (j + 1) + ": " + playerTowers[i*maxTowers + j]);
+            }
         }
     }
 };
 
 function toggleTowerOptions() {
-    console.log("Randomize towers clicked")
     if($("#randomize_towers").is(":checked")) {
         $("#restrict_tower_type").prop("disabled",false);
         $("#max_towers").prop("disabled",false);
