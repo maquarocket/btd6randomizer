@@ -38,12 +38,10 @@ function getRandomHero() {
 function getRandomMode(isTowerTypeRestricted) {
     let modeArray = [];
     for(var i = 0; i < btd6_modes.length; i++) {
-        if(!isTowerTypeRestricted || !btd6_only_modes.includes(i))
-        {
+        if (!isTowerTypeRestricted || !btd6_only_modes.includes(i)) {
             modeArray.push(btd6_modes[i]);
         }
     }
-
     let modeIndex = getRandomInt(0,modeArray.length - 1);
     return modeArray[modeIndex];
 };
@@ -132,7 +130,7 @@ function generateRandomOptions() {
     //Then the mode
     if(useRandomMode) {
         $("#random_mode").removeClass("d-none");
-        $("#random_mode_result").append(getRandomMode());
+        $("#random_mode_result").append(getRandomMode(useRandomTowers));
     }
     // Randomize heroes.
     if (useRandomHero) {
