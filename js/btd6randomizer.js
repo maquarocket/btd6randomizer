@@ -72,6 +72,37 @@ function getRandomTowers(noOfTowers, towerType) {
     return randomTowers;
 }
 
+function togglePlayerCards(showPlayers) {
+    if(showPlayers) {
+        let playerCount = parseInt($("#playercount").val());
+        for(i = 0; i < playerCount; i++) {
+            $("#player_" + (i + 1)).removeClass("d-none");
+        }
+    }
+    else {
+        for(i = 0; i < 4; i++) {
+            $("#player_" + (i + 1)).addClass("d-none");
+            $("#player_" + (i + 1) + "_hero").addClass("d-none");
+            $("#player_" + (i + 1) + "_hero").empty();
+            for(j = 0; j < 4; j++) {
+                $("#player_" + (i + 1) + "_tower_" + (j + 1)).addClass("d-none");
+                $("#player_" + (i + 1) + "_tower_" + (j + 1)).empty();
+            }
+        }
+    }
+}
+
+function showRandomHeroes() {
+    let playerCount = parseInt($("#playercount").val());
+    let useRandomHero = $("#randomize_heroes").is(":checked");
+    for(i = 0; i < playerCount; i++) {
+        if(useRandomHero)
+        {
+            $("#player_" + (i + 1) + "_hero").removeClass("d-none");
+            $("#player_" + (i + 1) + "_hero").append("Hero: " + getRandomHero());
+        }
+    }
+}
 function generateRandomOptions() {
     let playerCount = parseInt($("#playercount").val());
     let useRandomMap = $("#randomize_map").is(":checked");
@@ -91,16 +122,9 @@ function generateRandomOptions() {
     $("#random_mode").addClass("d-none");
     $("#random_mode_result").empty();
     
+    //Hide player cards
+    togglePlayerCards(false);
     
-    for(i = 0; i < 4; i++) {
-        $("#player_" + (i + 1)).addClass("d-none");
-        $("#player_" + (i + 1) + "_hero").addClass("d-none");
-        $("#player_" + (i + 1) + "_hero").empty();
-        for(j = 0; j < 4; j++) {
-            $("#player_" + (i + 1) + "_tower_" + (j + 1)).addClass("d-none");
-            $("#player_" + (i + 1) + "_tower_" + (j + 1)).empty();
-        }
-    }
     //Output map first
     if(useRandomMap) {
         $("#random_map").removeClass("d-none");
@@ -114,6 +138,7 @@ function generateRandomOptions() {
     //Finally each player's options (hero and towers)
     if(useRandomHero || useRandomTowers)
     {
+        togglePlayerCards(true);
         if(useRandomTowers) {
             let playerTowers = [];
             if(restrictTowerType) {
@@ -134,12 +159,7 @@ function generateRandomOptions() {
             
             for(var i = 0; i < playerCount; i++)
             {
-                $("#player_" + (i + 1)).removeClass("d-none");
-                if(useRandomHero)
-                {
-                    $("#player_" + (i + 1) + "_hero").removeClass("d-none");
-                    $("#player_" + (i + 1) + "_hero").append("Hero: " + getRandomHero());
-                }
+                showRandomHeroes();
                 if(useRandomTowers)
                 {
                     for(var j = 0; j < maxTowers; j++) {
@@ -148,6 +168,9 @@ function generateRandomOptions() {
                     }
                 }
             }
+        }
+        else {
+            showRandomHeroes();
         }
     }
 };
