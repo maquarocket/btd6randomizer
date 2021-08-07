@@ -180,4 +180,9 @@ $(document).ready(function() {
     $("#randomize_towers").click(function() {
         toggleTowerOptions();
     });
+
+    //Add version numbers for both BTD6 and the randomizer
+    $("#pagefooter").html(
+        "Version <strong>" + randomizer_version+ "</strong> for Bloons Tower Defense 6 version <strong>" + btd6_version + "</strong>"
+    );
 });

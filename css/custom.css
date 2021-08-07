@@ -22,3 +22,13 @@ div.transbox {
 .scrollable-columns {
     overflow-y: scroll;
 }
+
+.cleanlink {
+    color: #000000;
+    text-decoration: none;
+}
+
+.cleanlink:hover {
+    color: #000000;
+    text-shadow: 0 0 5px #000000;
+}
