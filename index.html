@@ -14,9 +14,9 @@
 			<h2 class="text-center btd6font">Bloons TD6 Randomizer</h2>
 			<h4 class="text-center btd6font">Randomizes options for maps, hero selection, mode selection and tower selection</h4>
 		</div>	
-		<div class="row container mx-auto py-2 transbox d-flex h-75 style="margin-top: 1%">
+		<div class="row container mx-auto py-2 transbox d-flex overflow-auto h-75" style="margin-top: 1%">
 			<div class="col-6 px-2">
-				<div id="options" class="border border-dark rounded h-100">
+				<div id="options" class="border border-dark rounded">
 					<h4 class="text-center btd6font">Options</h4>
 					<form>
 						<div class="mb-3">
@@ -52,6 +52,81 @@
 							<button type="button" id="generator_btn" onclick="generateRandomOptions()" class="col-3 btn btn-primary">Generate</button>
 						</div>
 					</form>
+				</div>
+				<div id="filters">
+					<h4 class="text-center btd6font">Filters</h4>
+					<div id="filter_accordion" class="accordion">
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="mapfilter_heading">	
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mapfilter_collapse" aria-expanded="false" aria-controls="mapfilter_collapse">
+									Maps
+								</button>
+							</h2>
+							<div id="mapfilter_collapse" class="accordion-collapse collapse" aria-labelledby="mapfilter_heading" data-bs-parent="#filter_accordion">
+								<div class="accordion-body">
+									<div class="mx-auto py-2">
+										<button type="button" id="mapfilter_easy" class="btn btn-secondary">Easy</button>
+										<button type="button" id="mapfilter_intermediate" class="btn btn-secondary">Intermediate</button>
+										<button type="button" id="mapfilter_advanced" class="btn btn-secondary">Advanced</button>
+										<button type="button" id="mapfilter_expert" class="btn btn-secondary">Expert</button>
+									</div>
+									<ul id="mapfilter_list" class="list-group">
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="modefilter_heading">	
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#modefilter_collapse" aria-expanded="false" aria-controls="modefilter_collapse">
+									Modes
+								</button>
+							</h2>
+							<div id="modefilter_collapse" class="accordion-collapse collapse" aria-labelledby="modefilter_heading" data-bs-parent="#filter_accordion">
+								<div class="accordion-body">
+									<div class="mx-auto py-2">
+										<button type="button" id="modefilter_easy" class="btn btn-secondary">Easy</button>
+										<button type="button" id="modefilter_intermediate" class="btn btn-secondary">Intermediate</button>
+										<button type="button" id="modefilter_advanced" class="btn btn-secondary">Advanced</button>
+										<button type="button" id="modefilter_expert" class="btn btn-secondary">Expert</button>
+									</div>
+									<ul id="modefilter_list" class="list-group">
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="herofilter_heading">	
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#herofilter_collapse" aria-expanded="false" aria-controls="herofilter_collapse">
+									Heroes
+								</button>
+							</h2>
+							<div id="herofilter_collapse" class="accordion-collapse collapse" aria-labelledby="herofilter_heading" data-bs-parent="#filter_accordion">
+								<div class="accordion-body">
+									<ul id="herofilter_list" class="list-group">
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="towerfilter_heading">	
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#towerfilter_collapse" aria-expanded="false" aria-controls="towerfilter_collapse">
+									Towers
+								</button>
+							</h2>
+							<div id="towerfilter_collapse" class="accordion-collapse collapse" aria-labelledby="towerfilter_heading" data-bs-parent="#filter_accordion">
+								<div class="accordion-body">
+									<div class="mx-auto py-2">
+										<button type="button" id="towerfilter_primary" class="btn btn-secondary">Primary</button>
+										<button type="button" id="towerfilter_military" class="btn btn-secondary">Military</button>
+										<button type="button" id="towerfilter_magic" class="btn btn-secondary">Magic</button>
+										<button type="button" id="towerfilter_support" class="btn btn-secondary">Support</button>
+									</div>
+									<ul id="towerfilter_list" class="list-group">
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-6 px-2">
