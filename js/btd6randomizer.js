@@ -26,12 +26,12 @@ function shuffle(array) {
 }
 
 function getRandomMap() {
-    let mapIndex = getRandomInt(0,btd6_maps.length - 1);
+    let mapIndex = getRandomInt(0,btd6_maps.length);
     return btd6_maps[mapIndex];
 };
 
 function getRandomHero() {
-    let heroIndex = getRandomInt(0,btd6_heroes.length - 1);
+    let heroIndex = getRandomInt(0,btd6_heroes.length);
     return btd6_heroes[heroIndex];
 };
 
@@ -42,7 +42,7 @@ function getRandomMode(isTowerTypeRestricted) {
             modeArray.push(btd6_modes[i]);
         }
     }
-    let modeIndex = getRandomInt(0,modeArray.length - 1);
+    let modeIndex = getRandomInt(0,modeArray.length);
     return modeArray[modeIndex];
 };
 
@@ -62,7 +62,7 @@ function getRandomTowers(noOfTowers, towerType) {
         }
     }
     for(let i = 0; i < noOfTowers; i++) {
-        let towerInt = getRandomInt(0, towerArray.length - 1);
+        let towerInt = getRandomInt(0, towerArray.length);
         randomTowers.push(towerArray[towerInt]);
         towerArray.splice(towerInt,1);
     }
