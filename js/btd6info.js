@@ -1,4 +1,6 @@
-//As of BTD6 27.1.4229
+const btd6_version = "27.1.4229"
+const randomizer_version = "1.0.1"
+
 let btd6_maps = [
     "Monkey Meadow (Beginner)",
     "Tree Stump (Beginner)",
