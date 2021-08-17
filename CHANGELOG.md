@@ -9,6 +9,7 @@
 ### Aestethic Changes
 
 - Switched the order of the randomization options to have "Randomize Mode" before "Randomize Heroes" so that the order of the options and results are consistent.
+- Added a small spacing between the header and the main content.
 
 ### Other
 
