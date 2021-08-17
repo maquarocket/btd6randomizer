@@ -27,7 +27,7 @@ The **_randomize map_** option will randomly select a map from the standard 56 m
 
 ### Heroes Randomizer
 
-The **_randomize heroes_** option will randomly select 1 hero for each player. The random assignment does not repeat heroes for different players. Thus if randomizing for 4 players, all the 4 selected heroes will be different.
+The **_randomize heroes_** option will randomly select 1 hero for each player. The random assignment can repeat heroes for different players. Thus, it is possible for multiple players to get the same hero.
 
 ### Game Mode Randomizer
 

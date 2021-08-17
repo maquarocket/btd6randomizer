@@ -6,9 +6,10 @@
 
 - Added a footer which shows the version of the randomizer and the BTD6 version that the randomizer is accurate till. Clicking on the footer takes you to the changelog for the randomizer.
 
-### Bug Fixes
+### Fixes
 
 - Fixed a bug where #Ouch, C.H.I.M.P.S., Psi & Engineer Monkey would never be chosen under normal circumstances.
+- Fixed a mistake in the readme that said heroes do not repeat across players. However, multiple players are actually able to be assigned the same hero.
 
 ### Aestethic Changes
 
