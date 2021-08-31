@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.0 (2021-08-18)
+
+Rewrote the app in React. This will help facilitate the development of more advanced features. The new ACBR can be accessed [here](https://whysnakes.github.io/btd6randomizerv2/ "whysnakes and maquarocket present ACBR: A C*** BTD6 Randomizer").
+
+**NOTE THAT ACBR HAS MOVED TO A NEW HOME. THIS VERSION OF ACBR IS HENCE NO LONGER BEING MAINTAINED. PLEASE VISIT THE NEW ACBR AT THE ABOVE LINK!**
+
+
 ## 1.0.1 (2021-08-17)
 
 ### Additions

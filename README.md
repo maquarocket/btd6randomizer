@@ -5,6 +5,9 @@ Welcome to a Bloons Tower Defense 6 game randomizer!
 If you haven't figured out where the randomizer is yet, [click here](https://maquarocket.github.io/btd6randomizer/ "whysnakes and maquarocket present ACBR: A C*** BTD6 Randomizer")!
 
 For those who are interested, the changelog can be found [here](./CHANGELOG.md)
+
+**PLEASE NOTE THAT THIS VERSION OF ACBR IS NO LONGER BEING MAINTAINED AS ACBR HAS NOW MOVED TO A NEW HOME. YOU CAN NOW FIND ACBRv2 [here](https://whysnakes.github.io/btd6randomizerv2/ "whysnakes and maquarocket present ACBR: A C*** BTD6 Randomizer")!**
+
 ## The Application
 
 ![Image of the Bloons Tower Defense 6 Randomizer with generated results for 2 players, a random map, game mode and heroes and 2 towers for each player](./docs/app_screenshot.png?raw=true "App Screenshot")
